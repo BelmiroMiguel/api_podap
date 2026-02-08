@@ -99,7 +99,7 @@ class OcorrenciaController extends Controller
 
             // Filtro "Apenas Minha Esquadra": Restringe a busca à esquadra do policial logado
             // Só tem efeito se o usuário for do tipo POLICIAL
-            if ($request->boolean('apenasEsquadra') && $usuarioLogado->tipoUsuario === 'POLICIAL') {
+            if ($request->boolean('apenasEsquadra') && $usuarioLogado != null && $usuarioLogado->tipoUsuario === 'POLICIAL') {
                 $idEsquadra = $usuarioLogado->policial->idEsquadra;
 
                 $query->whereHas('custodia', function ($q) use ($idEsquadra) {
@@ -219,7 +219,7 @@ class OcorrenciaController extends Controller
 
             // Filtro "Apenas Minha Esquadra": Restringe a busca à esquadra do policial logado
             // Só tem efeito se o usuário for do tipo POLICIAL
-            if ($request->boolean('apenasEsquadra') && $usuarioLogado->tipoUsuario === 'POLICIAL') {
+            if ($request->boolean('apenasEsquadra')  && $usuarioLogado != null && $usuarioLogado->tipoUsuario === 'POLICIAL') {
                 $idEsquadra = $usuarioLogado->policial->idEsquadra;
 
                 $query->whereHas('custodia', function ($q) use ($idEsquadra) {
