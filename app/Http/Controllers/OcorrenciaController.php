@@ -25,6 +25,7 @@ class OcorrenciaController extends Controller
         try {
             /** @var Usuario $usuarioLogado */
             $usuarioLogado = Auth::user();
+            $usuarioLogado = auth('sanctum')->user(); 
 
             // Define a quantidade de itens por página (padrão 15)
             $limit = $request->get('limit', 15);

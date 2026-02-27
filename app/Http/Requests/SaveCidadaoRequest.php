@@ -32,7 +32,7 @@ class SaveCidadaoRequest extends FormRequest
             'senha' => [
                 'required',
                 'confirmed',
-                Password::min(8)->letters()->mixedCase()->numbers()->symbols(),
+                //Password::min(8)->letters()->mixedCase()->numbers()->symbols(),
             ]
 
         ];
